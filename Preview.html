@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .portfolio-container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .portfolio-item {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .image-area{  
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .link-area {
+            padding: 15px;
+            text-align: center;
+            background: linear-gradient(to right, #56ab2f, #a8e063);
+        }
+
+        .link-area a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .link-area a:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio-container" id="portfolio-container">
+        <!-- Portfolio items will be injected here by JavaScript -->
+    </div>
+
+    <script>
+        const data = [
+            {"link": "https://activeseller.netlify.app/1", "img__src": "/theme/1.png", "key": 1},
+            {"link": "https://activeseller.netlify.app/2", "img__src": "/theme/2.jpg", "key": 2},
+            {"link": "https://activeseller.netlify.app/3", "img__src": "/theme/3.jpg", "key": 3},
+            {"link": "https://activeseller.netlify.app/4", "img__src": "/theme/4.jpg", "key": 4},
+            {"link": "https://activeseller.netlify.app/5", "img__src": "/theme/5.jpg", "key": 5},
+            {"link": "https://activeseller.netlify.app/6", "img__src": "/theme/6.jpg", "key": 6},
+            {"link": "https://activeseller.netlify.app/7", "img__src": "/theme/7.jpg", "key": 7},
+            {"link": "https://activeseller.netlify.app/8", "img__src": "/theme/8.png", "key": 8},
+            {"link": "https://activeseller.netlify.app/9", "img__src": "/theme/9.png", "key": 9},
+            {"link": "https://activeseller.netlify.app/10", "img__src": "/theme/10.png", "key": 10},
+            {"link": "https://activeseller.netlify.app/11", "img__src": "/theme/11.png", "key": 11},
+            {"link": "https://activeseller.netlify.app/12", "img__src": "/theme/12.png", "key": 12},
+            {"link": "https://activeseller.netlify.app/13", "img__src": "/theme/13.png", "key": 13},
+            {"link": "https://activeseller.netlify.app/14", "img__src": "/theme/14.png", "key": 14},
+            {"link": "https://activeseller.netlify.app/15", "img__src": "/theme/15.png", "key": 15},
+            {"link": "https://activeseller.netlify.app/16", "img__src": "/theme/16.jpg", "key": 16},
+            {"link": "https://activeseller.netlify.app/17", "img__src": "/theme/17.jpg", "key": 17},
+            {"link": "https://activeseller.netlify.app/18", "img__src": "/theme/18.png", "key": 18},
+            {"link": "https://activeseller.netlify.app/19", "img__src": "/theme/19.png", "key": 19},
+            {"link": "https://activeseller.netlify.app/20", "img__src": "/theme/20.jpg", "key": 20},
+            {"link": "https://activeseller.netlify.app/21", "img__src": "/theme/21.jpg", "key": 21},
+            {"link": "https://activeseller.netlify.app/22", "img__src": "/theme/22.png", "key": 22},
+            {"link": "https://activeseller.netlify.app/23", "img__src": "/theme/23.png", "key": 23},
+            {"link": "https://activeseller.netlify.app/24", "img__src": "/theme/24.png", "key": 24},
+            {"link": "https://activeseller.netlify.app/25", "img__src": "/theme/25.jpg", "key": 25},
+            {"link": "https://activeseller.netlify.app/26", "img__src": "/theme/26.jpg", "key": 26},
+            {"link": "https://activeseller.netlify.app/27", "img__src": "/theme/27.jpg", "key": 27},
+            {"link": "https://activeseller.netlify.app/28", "img__src": "/theme/28.jpg", "key": 28},
+            {"link": "https://activeseller.netlify.app/29", "img__src": "/theme/29.jpg", "key": 29},
+            {"link": "https://activeseller.netlify.app/30", "img__src": "/theme/30.jpg", "key": 30},
+            {"link": "https://activeseller.netlify.app/31", "img__src": "/theme/31.jpg", "key": 31},
+            {"link": "https://activeseller.netlify.app/32", "img__src": "/theme/32.jpg", "key": 32},
+            {"link": "https://activeseller.netlify.app/33", "img__src": "/theme/33.jpg", "key": 33},
+            {"link": "https://activeseller.netlify.app/34", "img__src": "/theme/34.jpg", "key": 34},
+            {"link": "https://activeseller.netlify.app/35", "img__src": "/theme/35.jpg", "key": 35},
+            {"link": "https://activeseller.netlify.app/36", "img__src": "/theme/36.jpg", "key": 36},
+            {"link": "https://activeseller.netlify.app/37", "img__src": "/theme/37.jpg", "key": 37},
+            {"link": "https://activeseller.netlify.app/38", "img__src": "/theme/38.jpg", "key": 38}
+        ];
+
+        const container = document.getElementById('portfolio-container');
+
+        data.forEach(item => {
+            const portfolioItem = document.createElement('div');
+            portfolioItem.className = 'portfolio-item';
+
+            const imageArea = document.createElement('div');
+            imageArea.className = 'image-area';
+            imageArea.style.backgroundImage = `url(${item.img__src})`;
+
+            const linkArea = document.createElement('div');
+            linkArea.className = 'link-area';
+
+            const link = document.createElement('a');
+            link.href = item.link;
+            link.target = '_blank';
+            link.textContent = `View Portfolio ${item.key}`;
+
+            linkArea.appendChild(link);
+            portfolioItem.appendChild(imageArea);
+            portfolioItem.appendChild(linkArea);
+            container.appendChild(portfolioItem);
+        });
+    </script>
+</body>
+</html>
